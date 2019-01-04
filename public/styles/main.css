@@ -1,0 +1,19 @@
+body {
+  background-color: #7b7b7b;  
+}
+
+.salesPerson {
+  background-color: #269ccc;
+  margin: 5px;
+  padding: 5px;
+}
+
+p {
+  margin: 5px;
+  padding: 5px;
+}
+
+.profit-container {
+  margin: 5px;
+  padding: 5px;
+}
