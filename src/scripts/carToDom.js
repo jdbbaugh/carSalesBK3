@@ -25,6 +25,12 @@ const carToDom = {
       saleContainer.appendChild(profit);
       saleContainer.appendChild(document.createElement("hr"));
     })
+  },
+  searchForSalesman () {
+    const targetContainer = document.querySelector(".output");
+    const inputElement = document.createElement("input");
+    inputElement.setAttribute("id", "searchInput");
+    targetContainer.appendChild(inputElement);
   }
 };
 
