@@ -9,12 +9,29 @@ const carToDom = {
     const searchInput = document.querySelector("#searchInput");
     searchInput.addEventListener("keypress", event => {
       if (event.charCode === 13) {
-        const foundDealer = salesByWeek.find(element =>
-           element.sales_agent.first_name.includes(event.target.value)
-        );
+        const foundDealer = salesByWeek.find(element => {
+          console.log(element);
+          return element.sales_agent.first_name.includes(event.target.value) || element.sales_agent.last_name.includes(event.target.value) || element.sales_agent.email.includes(event.target.value);
+        });
 
         console.log(foundDealer);
-        
+              // console.log(sale);
+          const saleContainer = document.createElement("article");
+          saleContainer.classList.add("sales-container");
+          targetContainer.appendChild(saleContainer);
+          const salesPerson = document.createElement("h2");
+          salesPerson.classList.add("salesPerson")
+          salesPerson.textContent = `${foundDealer.sales_agent.first_name} ${foundDealer.sales_agent.last_name}`
+          saleContainer.appendChild(salesPerson);
+
+          console.log(foundDealer)
+          for (const entry of Object.entries(foundDealer.sales_agent)) {
+            console.log(entry);
+            const saleInfo = document.createElement("p");
+            saleInfo.textContent = `${entry[0]}: ${entry[1]}`
+            saleContainer.appendChild(saleInfo);
+
+          }
       }
     });
 
